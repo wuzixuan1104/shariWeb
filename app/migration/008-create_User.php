@@ -8,6 +8,7 @@ return [
     `account`   varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '帳號',
     `password`  varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '密碼',
     `mid`       varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Line mid',
+    `accessToken` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Access Token',
     `updateAt`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新時間',
     `createAt`  datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '新增時間',
     PRIMARY KEY (`id`)
