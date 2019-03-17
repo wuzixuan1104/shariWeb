@@ -43,13 +43,14 @@ class Curl {
           $options[CURLOPT_INFILESIZE] = filesize($reqBody['__file']);
         } elseif (!empty($reqBody)) {
           $options[CURLOPT_POST] = true;
-          $options[CURLOPT_POSTFIELDS] = json_encode($reqBody);
+          $options[CURLOPT_POSTFIELDS] = http_build_query($reqBody);
         } else {
           $options[CURLOPT_POST] = true;
           $options[CURLOPT_POSTFIELDS] = $reqBody;
         }
       }
     }
+
     return $options;
   }
 

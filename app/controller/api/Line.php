@@ -13,32 +13,26 @@ class Line extends ApiController {
     Load::lib('Curl.php');
     $obj = new Curl();
 
-    $obj = $obj->post('https://api.line.me/v1/oauth/accessToken', [
+    $obj = $obj->post('https://api.line.me/oauth2/v2.1/token', [
       'grant_type' => 'authorization_code',
       'client_id' => config('line', 'channel', 'id'),
       'client_secret' => config('line', 'channel', 'secret'),
       'code' => $code,
-      'redirect_url' => 'http://dev.shari.web.tw/',
-    ]);
+      'redirect_uri' => 'http://dev.shari.web.tw/api/line/auth/callback',
+    ], ['Content-Type: application/x-www-form-urlencoded']);
+
     if (!$data = $obj->jsonBody) 
       gg('fail response !');
 
-    echo $code;
-    print_R($obj);
-    die;
-    if (!(isset($data['access_token']) && $data['access_token'])) 
-      gg('fail get profile');
+    Load::lib('Jwt.php');
 
-    $obj = new Curl();
-    $obj = $obj->get('https://api.line.me/v1/profile', ['Authorization' => 'Bearer ' . $data['access_token']]);
-    if (!$res = $obj->jsonBody)
-      gg('fail response');
-
-    if(!$user = \M\User::create(['name' => $res['displayName'], 'mid' => $res['mid'], 'accessToken' => $data['access_token']]))
+    if (!$res = Jwt::decodeIdToken($data['id_token'], config('line', 'channel', 'secret'), config('line', 'channel', 'id'), 'https://access.line.me'))
+      gg('jwt token invalid !');
+   
+    if(!$user = \M\User::create(['name' => $res['name'], 'lid' => $res['sub'], 'jwtToken' => $data['id_token']]))
       gg('fail');
 
-    echo 'success';
-    die;
-
+    // redirect();
+    return true;
   }
 }
