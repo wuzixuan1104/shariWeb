@@ -6,6 +6,7 @@ Router::dir('admin', 'Admin', function() {
   Router::get('logout')->controller('Auth@logout');
   Router::get('login')->controller('Auth@login');
   Router::post('login')->controller('Auth@signin');
+  Router::post('link')->controller('Auth@lineLink');
 
   // 後台主頁
   Router::get()->controller('Main@index');
