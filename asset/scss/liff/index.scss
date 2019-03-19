@@ -62,9 +62,10 @@ form.login_form {
         padding: 0 4px;
         color: #787878;
         margin-top: 5px;
-        border-radius: 0;
+        // border-radius: 0;
+        @include border-radius(2px);
         -webkit-appearance: none;
-        // @include border-radius(2px);
+        
       }
       > input[type="submit"] {
         margin-top: 20px;
