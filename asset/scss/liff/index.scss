@@ -63,9 +63,7 @@ form.login_form {
         color: #787878;
         margin-top: 5px;
         @include border-radius(2px);
-        @include transition(box-shadow 0.3s, border-color 0.3s);
       }
-
       > input[type="submit"] {
         margin-top: 20px;
         background-color: #419cfb;
@@ -73,8 +71,6 @@ form.login_form {
         text-align: center;
         height: 35px;
         border: 0;
-        @include transition(box-shadow 0.1s);
-
       }
 
       + .row {
