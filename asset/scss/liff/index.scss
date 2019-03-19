@@ -62,12 +62,13 @@ form.login_form {
         padding: 0 4px;
         color: #787878;
         margin-top: 5px;
-        @include border-radius(2px);
+        border-radius: 0;
+        -webkit-appearance: none;
+        // @include border-radius(2px);
       }
       > input[type="submit"] {
         margin-top: 20px;
-        // background-color: #419cfb;
-        background-color: #e05252;
+        background-color: #419cfb;
         color: white;
         text-align: center;
         height: 35px;
