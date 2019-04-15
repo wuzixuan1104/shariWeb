@@ -15,12 +15,40 @@
     <form class="login_form">
       <div class="list">
         <label class="row">
-          <textarea name="content" required placeholder="請輸入內容"></textarea>
+          <textarea id="myTextarea" name="content" required placeholder="請輸入內容"></textarea>
         </label>
         <label class="row">
-          <input type="submit" value="送出">
+          <input id="getProfile" type="button" value="取得使用者資料">
+          <input id="send" type="submit" value="送出">
         </label>
       </div>
     </form>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script>
+      window.onload = function (e) {
+        liff.init(function (data) {
+          initializeApp(data);
+        });
+      };
+
+      function initializeApp(data) {
+        document.getElementById('send').addEventListener('click', function () {
+            liff.closeWindow();
+        });
+
+        document.getElementById('getProfile').addEventListener('click', function () {
+            liff.getProfile().then(function (profile) {
+                var html = 'user_id = ' + profile.userId + '<br>';
+                html += 'display_name = ' + profile.displayName;
+                document.getElementById('myTextarea').value = html;
+                
+            }).catch(function (error) {
+                window.alert("Error getting profile: " + error);
+            });
+        });
+      }
+
+
+    </script>
   </body>
 </html>
