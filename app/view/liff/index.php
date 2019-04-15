@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>請填寫表單</title>
+    <title>信件內容</title>
 
     <?php echo $asset->renderCSS ();?>
     <?php echo $asset->renderJS ();?>
@@ -15,12 +15,7 @@
     <form class="login_form">
       <div class="list">
         <label class="row">
-          <b>帳號</b>
-          <input type="text" name="account" required>
-        </label>
-        <label class="row">
-          <b>密碼</b>
-          <input type="password" name="password" required>          
+          <textarea name="content" required placeholder="請輸入內容"></textarea>
         </label>
         <label class="row">
           <input type="submit" value="送出">
