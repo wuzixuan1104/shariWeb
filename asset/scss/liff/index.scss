@@ -65,7 +65,7 @@ form.login_form {
         // border-radius: 0;
         resize: none;
         @include border-radius(2px);
-        -webkit-appearance: none;
+        // -webkit-appearance: none;
       }
 
       > input[type="submit"] {
