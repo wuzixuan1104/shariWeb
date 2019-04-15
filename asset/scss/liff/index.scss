@@ -63,6 +63,7 @@ form.login_form {
         color: #787878;
         margin-top: 5px;
         // border-radius: 0;
+        resize: none;
         @include border-radius(2px);
         -webkit-appearance: none;
       }
