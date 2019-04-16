@@ -6,6 +6,8 @@
 
     <title>信件內容</title>
     <link href="https://trip.web.shari.tw/asset/css/liff/index.css" rel="stylesheet" type="text/css">
+    
+
   </head>
   <body>
     <form class="login_form">
