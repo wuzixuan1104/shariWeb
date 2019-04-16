@@ -35,14 +35,36 @@ form.login_form {
   display: inline-block;
   width: 100%;
   padding: 15px 10px;
-  .list {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
+  // .list {
+  //   display: inline-block;
+  //   width: 100%;
+  //   text-align: left;
 
     .row {
       display: inline-block;
       width: 100%;
+      
+      #pic {
+        display: inline-block;
+        width: 30px;
+        border: 1px solid rgba(255, 0, 0, .3);
+        height: 30px;
+        float: left;
+        overflow: hidden;
+        border: 1px solid rgb(212, 212, 212);
+        @include border-radius(30px);
+        img {
+          width: 100%;
+
+        }
+      }
+
+      .name {
+        display: inline-block;
+        float: left;
+        line-height: 30px;
+        margin-left: 10px;
+      }
 
       > b {
         display: block;
@@ -84,6 +106,6 @@ form.login_form {
       + .row {
         margin-top: 5px;
       }
-    }
+    // }
   }
 }
