@@ -84,10 +84,9 @@ form.login_form {
         padding: 0 4px;
         color: #787878;
         margin-top: 5px;
-        // border-radius: 0;
         resize: none;
         @include border-radius(2px);
-        // -webkit-appearance: none;
+        -webkit-appearance: none;
       }
 
       > input[type="submit"] {
