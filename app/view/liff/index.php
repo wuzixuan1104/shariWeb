@@ -23,7 +23,7 @@
     </form>
 
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
-    <script>
+    <!-- <script>
       window.onload = function (e) {
         liff.init(function (data) {
           initializeApp(data);
@@ -51,6 +51,6 @@
           window.alert("Error getting profile: " + error);
         });
       }
-    </script>
+    </script> -->
   </body>
 </html>

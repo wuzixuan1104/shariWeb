@@ -35,6 +35,7 @@ form.login_form {
   display: inline-block;
   width: 100%;
   padding: 15px 10px;
+  
   > * {
     display: inline-block;
     width: 100%;
@@ -57,7 +58,7 @@ form.login_form {
       @include border-radius(30px);
       img {
         width: 100%;
-
+        
       }
     }
 
