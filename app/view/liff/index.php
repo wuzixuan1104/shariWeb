@@ -6,8 +6,8 @@
     <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
 
     <title>信件內容</title>
-
-    <?php echo $asset->renderCSS ();?>
+    <link href="https://trip.web.shari.tw/asset/css/liff/index.css" rel="stylesheet" type="text/css">
+  
     <?php echo $asset->renderJS ();?>
 
   </head>
