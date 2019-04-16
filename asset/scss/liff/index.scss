@@ -35,7 +35,7 @@ form.login_form {
   display: inline-block;
   width: 100%;
   padding: 15px 10px;
-  
+
   > * {
     display: inline-block;
     width: 100%;
@@ -58,7 +58,7 @@ form.login_form {
       @include border-radius(30px);
       img {
         width: 100%;
-        
+
       }
     }
 
@@ -84,7 +84,7 @@ form.login_form {
   }
 
   input[type="submit"] {
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: rgb(74, 171, 241);
     color: white;
     text-align: center;
