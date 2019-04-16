@@ -16,4 +16,4 @@ form.login_form .top #pic { width: 30px; border: 1px solid rgba(255, 0, 0, 0.3);
 form.login_form .top #pic img { width: 100%; }
 form.login_form .top #name { float: left; font-weight: bold; line-height: 30px; margin-left: 10px; }
 form.login_form #myTextarea { height: 150px; line-height: 27px; border: 1px solid #c8c8c8; font-size: 16px; padding: 0 4px; color: #787878; margin-top: 5px; resize: none; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; -webkit-appearance: none; }
-form.login_form input[type="submit"] { margin-top: 20px; background-color: #4aabf1; color: white; text-align: center; height: 40px; border: 0; width: 100%; font-size: 16px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; -webkit-appearance: none; }
+form.login_form input[type="submit"] { margin-top: 20px; background-color: #4aabf1; color: white; text-align: center; height: 40px; border: 0; width: 100%; font-size: 16px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -webkit-appearance: none; }
