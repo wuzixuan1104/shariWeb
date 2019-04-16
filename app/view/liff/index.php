@@ -51,7 +51,7 @@
                 // html += 'display_name = ' + profile.displayName;
 
                 document.getElementById('myTextarea').value = html;
-                document.getElementById('name').html = profile.displayName;
+                document.getElementById('name').text = profile.displayName;
 
                 const pictureDiv = document.getElementById('pic');
                 const img = document.createElement('img');
