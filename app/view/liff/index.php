@@ -14,18 +14,12 @@
   <body>
     <form class="login_form">
       <div class="top">
-        <div id="pic"><img src="/asset/img/me.png"></div>
-        <!-- <div id="pic"></div> -->
+        <!-- <div id="pic"><img src="/asset/img/me.png"></div> -->
+        <div id="pic"></div>
         <span id="name">Shari</span>
       </div>
-
-      <!-- <div class="row"> -->
-        <textarea id="myTextarea" name="content"  placeholder="請輸入內容" required></textarea>
-      <!-- </div> -->
-
-      <!-- <div class="row"> -->
-        <input id="send" type="submit" value="送出">
-      <!-- </div> -->
+      <textarea id="myTextarea" name="content"  placeholder="請輸入內容" required></textarea>
+      <input id="send" type="submit" value="送出">
     </form>
 
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
@@ -38,32 +32,25 @@
 
       function initializeApp(data) {
         document.getElementById('send').addEventListener('click', function () {
-            if (document.getElementById('myTextarea').value == '')
-              return false;
+          if (document.getElementById('myTextarea').value == '')
+            return false;
 
-            liff.closeWindow();
+          liff.closeWindow();
         });
 
-            liff.getProfile().then(function (profile) {
-                document.getElementById('name').html = profile.displayName;
+        liff.getProfile().then(function (profile) {
+          document.getElementById('name').html = profile.displayName;
 
-                const pictureDiv = document.getElementById('pic');
-                const img = document.createElement('img');
-                img.src = profile.pictureUrl;
-                img.alt = "Profile Picture";
-                pictureDiv.appendChild(img);
+          const pictureDiv = document.getElementById('pic');
+          const img = document.createElement('img');
+          img.src = profile.pictureUrl;
+          img.alt = "Profile Picture";
+          pictureDiv.appendChild(img);
 
-            }).catch(function (error) {
-                window.alert("Error getting profile: " + error);
-            });
-
-
-        // });
-
-        
+        }).catch(function (error) {
+          window.alert("Error getting profile: " + error);
+        });
       }
-
-
     </script>
   </body>
 </html>
