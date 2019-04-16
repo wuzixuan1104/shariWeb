@@ -50,8 +50,8 @@
                 // var html = 'user_id = ' + profile.userId + '<br>';
                 // html += 'display_name = ' + profile.displayName;
 
-                document.getElementById('myTextarea').value = html;
-                document.getElementById('name').text = profile.displayName;
+                // document.getElementById('myTextarea').value = html;
+                document.getElementById('name').html = profile.displayName;
 
                 const pictureDiv = document.getElementById('pic');
                 const img = document.createElement('img');
