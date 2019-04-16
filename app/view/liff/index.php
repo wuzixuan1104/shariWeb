@@ -13,20 +13,19 @@
   </head>
   <body>
     <form class="login_form">
-      <div class="row">
+      <div class="top">
         <div id="pic"><img src="/asset/img/me.png"></div>
         <!-- <div id="pic"></div> -->
-        <span class="name" id="name">Shari</span>
+        <span id="name">Shari</span>
       </div>
 
-      <div class="row">
-        <textarea id="myTextarea" name="content" required placeholder="請輸入內容"></textarea>
-      </div>
+      <!-- <div class="row"> -->
+        <textarea id="myTextarea" name="content"  placeholder="請輸入內容" required></textarea>
+      <!-- </div> -->
 
-      <div class="row">
-        <!-- <input id="getProfile" type="button" value="取得使用者資料"> -->
+      <!-- <div class="row"> -->
         <input id="send" type="submit" value="送出">
-      </div>
+      <!-- </div> -->
     </form>
 
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
@@ -45,12 +44,7 @@
             liff.closeWindow();
         });
 
-        // document.getElementById('getProfile').addEventListener('click', function () {
             liff.getProfile().then(function (profile) {
-                // var html = 'user_id = ' + profile.userId + '<br>';
-                // html += 'display_name = ' + profile.displayName;
-
-                // document.getElementById('myTextarea').value = html;
                 document.getElementById('name').html = profile.displayName;
 
                 const pictureDiv = document.getElementById('pic');
