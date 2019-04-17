@@ -10,6 +10,7 @@
 
   </head>
   <body>
+    <div><?php echo 123;?></div>
     <form class="login_form">
       <div class="top">
         <!-- <div id="pic"><img src="/asset/img/me.png"></div> -->
