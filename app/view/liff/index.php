@@ -7,17 +7,16 @@
     <title>信件內容</title>
     <link href="https://trip.web.shari.tw/asset/css/liff/index.css" rel="stylesheet" type="text/css">
     
-
+    <?php echo $asset->renderJS ();?>
   </head>
   <body>
-    <div><?php echo 123;?></div>
     <form class="login_form">
       <div class="top">
-        <!-- <div id="pic"><img src="/asset/img/me.png"></div> -->
         <div id="pic"></div>
         <span id="name">Shari</span>
       </div>
-      <textarea id="myTextarea" name="content"  placeholder="請輸入內容" required></textarea>
+      <textarea id="myTextarea" name="content"  placeholder="請輸入內容"></textarea>
+      <input type="file" name="file[]" multiple>
       <input id="send" type="submit" value="送出">
     </form>
 
