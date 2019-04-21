@@ -9,9 +9,11 @@ html body::-moz-selection { color: white; background-color: #78baff; }
 html body::selection { color: white; background-color: #78baff; }
 
 form.login_form { display: inline-block; width: 100%; padding: 15px 10px; }
-form.login_form .list { display: inline-block; width: 100%; text-align: left; }
-form.login_form .list .row { display: inline-block; width: 100%; }
-form.login_form .list .row > b { display: block; height: 20px; line-height: 20px; font-size: 14px; margin-bottom: 2px; }
-form.login_form .list .row > textarea { display: inline-block; width: 100%; height: 150px; line-height: 27px; border: 1px solid #c8c8c8; font-size: 16px; padding: 0 4px; color: #787878; margin-top: 5px; resize: none; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
-form.login_form .list .row > input[type="submit"] { margin-top: 10px; background-color: #419cfb; color: white; text-align: center; height: 35px; border: 0; width: 100%; font-size: 16px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; -webkit-appearance: none; }
-form.login_form .list .row + .row { margin-top: 5px; }
+form.login_form > * { display: inline-block; width: 100%; }
+form.login_form .top { text-align: left; }
+form.login_form .top > * { display: inline-block; float: left; }
+form.login_form .top #pic { width: 30px; border: 1px solid rgba(255, 0, 0, 0.3); height: 30px; float: left; overflow: hidden; border: 1px solid #d4d4d4; -moz-border-radius: 30px; -webkit-border-radius: 30px; border-radius: 30px; }
+form.login_form .top #pic img { width: 100%; }
+form.login_form .top #name { float: left; font-weight: bold; line-height: 30px; margin-left: 10px; }
+form.login_form #myTextarea { height: 150px; line-height: 27px; border: 1px solid #c8c8c8; font-size: 16px; padding: 0 4px; color: #787878; margin-top: 5px; resize: none; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; -webkit-appearance: none; }
+form.login_form input[type="submit"] { margin-top: 20px; background-color: #4aabf1; color: white; text-align: center; height: 40px; border: 0; width: 100%; font-size: 16px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -webkit-appearance: none; }

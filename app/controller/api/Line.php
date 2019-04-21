@@ -7,6 +7,7 @@ class Line extends ApiController {
   }
 
   public function authCallback() {
+    // Line Login 使用，不是 account link
     if(!$code = Input::get('code')) 
       gg('fail');  
 

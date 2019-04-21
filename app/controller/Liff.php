@@ -17,6 +17,6 @@ class Liff extends Controller {
   }
 
   public function post() {
-
+    
   }
 }
