@@ -3,7 +3,11 @@ curl -X POST -H "Authorization: key=AAAAjqyfBIs:APA91bEOpVhgXqbsKq_tRBKfPyhmv4Zm
     "title": "Hello",
     "body": "World",
     "icon": "firebase-logo.png",
-    "click_action": "https://trip.web.shari.tw/"
+    "click_action": "https://trip.web.shari.tw/",
+
   },
-  "to": "fdiv6TfMWOU:APA91bFiymIo431231GfCFcWrTR_12F4rnCKHJpqjDdbunHJCEhHVrAl0EyViNsseq0zHZm604sBOcArMNOpNDiXigIWrKuBMmT2jMg7L8V28Lo12tttGlV1EVipbYPsIZ5u_9z_gAWm"
+  "data": {
+    "status": "woohoo~~~"
+  },
+  "to": "cQP9tjgSnn4:APA91bHllq5fdKEnllCaIyyVh1roESpFOHZtUj_uuAXZDI-HRsuh8Ow-LmZLo1NUVbkSUEYqOvT3L8ZBTSZARZA1GC5FSZQjT8bV9BhvGGXZq7Gd2PN-mlKwRwyuB8pVbTBioV7j0tul"
 }' "https://fcm.googleapis.com/fcm/send"

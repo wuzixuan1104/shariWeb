@@ -9,20 +9,16 @@ var config = {
         storageBucket: "tripsaas-test.appspot.com",
         messagingSenderId: "612781458571"
       };
-      
+
 firebase.initializeApp(config);
 
 const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
-  // Customize notification here
-  const notificationTitle = 'Background Message Title';
-  const notificationOptions = {
-    body: 'Background Message body.',
-    icon: '/firebase-logo.png'
+  const title = 'Hi morning';
+  const options = {
+    body: payload.data.status
   };
 
-  return self.registration.showNotification(notificationTitle,
-      notificationOptions);
+  return self.registration.showNotification(title, options);
 });
