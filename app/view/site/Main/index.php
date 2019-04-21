@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Language" content="zh-tw" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
-
     <title>Maple</title>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -21,7 +21,6 @@
 
   </head>
   <body lang="zh-tw">
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
     <script>
       const messaging = firebase.messaging();
 
@@ -68,7 +67,7 @@
          console.log('An error occurred while retrieving token. ', err);
         });
       }
-  
+
       // messaging.requestPermission()
       //   .then(res => {
       //     // 若允許通知 -> 向 firebase 拿 token
