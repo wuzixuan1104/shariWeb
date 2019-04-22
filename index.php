@@ -72,7 +72,7 @@ Load::sysCore('Input.php')      || gg('載入 Input 失敗！');
 if (config('other', 'autoLoadComposer'))
   Load::path('vendor' . DIRECTORY_SEPARATOR . 'autoload.php') || gg('載入 Composer 失敗！');
 
-
+Load::path('vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
 
 /* ------------------------------------------------------
  *  輸出結果

@@ -4,4 +4,6 @@ Router::dir('api', function() {
   Router::get('line/auth/callback')->controller('Line@authCallback');
 
   Router::post('liff')->controller('Liff@index');
+
+  Router::get('firebase/realtime')->controller('Fire@realtime');
 });

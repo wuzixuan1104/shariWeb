@@ -1,5 +1,6 @@
 {
     "require": {
-        "spomky-labs/jose": "^7.1"
+        "spomky-labs/jose": "^7.1",
+        "kreait/firebase-php": "^4.20"
     }
 }

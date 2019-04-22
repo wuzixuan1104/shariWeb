@@ -22,21 +22,32 @@
   </head>
   <body lang="zh-tw">
     <script>
-      const messaging = firebase.messaging();
+      console.log('test');
+      // const messaging = firebase.messaging();
       
-      messaging.requestPermission().then(function() {
-        console.log('Have permission');
-        return messaging.getToken();
-      })
-      .then(function(token) {
-        console.log(token);
-      })
-      .catch(function(err) {
-        console.log('Error occurred!');
-      });
+      // messaging.requestPermission().then(function() {
+      //   console.log('Have permission');
+      //   return messaging.getToken();
+      // })
+      // .then(function(token) {
+      //   console.log(token);
+      // })
+      // .catch(function(err) {
+      //   console.log('Error occurred!');
+      // });
 
-      messaging.onMessage(function(payload) {
-        console.log('onMessage:', payload);
+      // messaging.onMessage(function(payload) {
+      //   console.log('onMessage:', payload);
+      // });
+
+      /* realtime */
+      var userRef = firebase.database().ref('users/');
+      console.log(userRef);
+
+      userRef.on('value', function(snapshot) {
+        var key = snapshot.key;
+        console.log('key:', key);
+        console.log(snapshot);
       });
 
     </script>
