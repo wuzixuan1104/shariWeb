@@ -22,32 +22,40 @@
   </head>
   <body lang="zh-tw">
     <script>
-      console.log('test');
-      // const messaging = firebase.messaging();
+      const messaging = firebase.messaging();
       
-      // messaging.requestPermission().then(function() {
-      //   console.log('Have permission');
-      //   return messaging.getToken();
-      // })
-      // .then(function(token) {
-      //   console.log(token);
-      // })
-      // .catch(function(err) {
-      //   console.log('Error occurred!');
-      // });
+      messaging.requestPermission().then(function() {
+        console.log('Have permission');
+        return messaging.getToken();
+      })
+      .then(function(token) {
+        console.log(token);
+      })
+      .catch(function(err) {
+        console.log('Error occurred!');
+      });
 
-      // messaging.onMessage(function(payload) {
-      //   console.log('onMessage:', payload);
-      // });
+      messaging.onMessage(function(payload) {
+        console.log('onMessage:', payload);
+      });
 
       /* realtime */
-      var userRef = firebase.database().ref('users/');
-      console.log(userRef);
+    
+      // var datetime = new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0].replace('T',' ');
 
-      userRef.on('value', function(snapshot) {
+      // firebase.database().ref('cs/1').set({
+      //   date: datetime,
+      // });
+
+      
+      var csRef = firebase.database().ref('cs/1');
+      console.log(csRef);
+
+      csRef.on('value', function(snapshot) {
+
         var key = snapshot.key;
         console.log('key:', key);
-        console.log(snapshot);
+        console.log(snapshot.val());
       });
 
     </script>

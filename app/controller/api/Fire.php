@@ -11,21 +11,16 @@ class Fire extends ApiController {
         ->withServiceAccount($serviceAccount)
         ->create();
 
-    $db = $firebase->getDatabase();
-    $reference = $db->getReference('users/PkjdDi1nVVYDi1XgBqZfVYGkIm82');
-    // $snapshot = $reference->getSnapshot();
-    // $value = $snapshot->getValue();
-    $reference->set([
-       'email' => 'test134@com.tw',
-       'profile_picture' => 'https://app.domain.tld',
-       'username' => 'test13'
-    ]);
+    // $db = $firebase->getDatabase();
+    // $reference = $db->getReference('cs/1');
+    // $reference->set([
+    //    'date' => date('Y-m-d H:i:s'),
+    // ]);
 
-    // $snap = $db->getReference('users')->orderByChild('email')->equalTo('cherry51120@gmail.com')->getSnapshot()->getValue();
-    
-    // ->equalTo('cherry51120@gmail.com')->getSnapshot();
-    // $value = $snap->hasChildren();
-    print_r($reference);
+    $messaging = $firebase->getMessaging();
+        
+    $messaging->send($message);
+    print_r($messaging);
     die;
   }
   
