@@ -1,6 +1,9 @@
 $(function () {
-    function token2Server() {
-        this.set2Send = function(sent) {
+    function tokenSendToServer(url, params) {
+        this.url = url,
+        this.params = params,
+
+        this.ready = function(sent) {
             window.localStorage.setItem('sentToServer', sent ? '1' : '0');
         },
 
@@ -11,7 +14,7 @@ $(function () {
         this.send = function(token) {
             if (!this.isSend()) {
               console.log('將 Token 更新至資料庫');
-              this.set2Send(true);
+              this.ready(true);
             } else {
               console.log('Token 已是最新狀態');
             }
@@ -19,7 +22,7 @@ $(function () {
     }
 
     getFirebaseConfig().then(function(config) {
-        const server = new token2Server();
+        const server = new tokenSendToServer('url', '123');
 
         firebase.initializeApp(config);
 
@@ -32,7 +35,7 @@ $(function () {
             messaging.getToken().then(function(refreshedToken) {
                 console.log('Token 重新更新');
                 //將token更新 呼叫後端ＡＰＩ
-                server.set2Send(false);
+                server.ready(false);
                 server.send(refreshedToken);
 
             }).catch(function(err) {
@@ -48,6 +51,7 @@ $(function () {
                 body: payload.data.status,
                 icon: payload.data.icon,        
             };
+            return self.registration.showNotification(title, options);
         });
 
         // realtime DB
@@ -56,6 +60,8 @@ $(function () {
             var key = snapshot.key;
             console.log('key:', key);
             console.log(snapshot.val());
+            $('.name').text('Shari');
+            $('.date').text(snapshot.val().date);
         });
 
         // 取得目前的 Token
@@ -66,11 +72,11 @@ $(function () {
                     server.send(token);
                 } else {
                     setRequestPermission();
-                    server.set2Send(false);
+                    server.ready(false);
                 }
             }).catch(function(err) {
                 console.log('取得 Token 發生錯誤. ', err);
-                server.set2Send(false);
+                server.ready(false);
             });
         }
 

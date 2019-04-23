@@ -21,7 +21,7 @@ class Fire extends ApiController {
 
 
     /* notification */
-    $deviceToken = 'etjufFqGmFM:APA91bH72RuX_8my_yxshbuRyzFGuAtU9ug-nS93SnhIcxYLjGcy6Y6JB8JQKBWuhYmB-cFRmGLU01uEWP3gvByr7oSq41sGT08uaLYrgpOjGmLXGru0TktAdQ_YSikCA2Icgcjqq2aa';
+    $deviceToken = 'fJrRjIzAiGs:APA91bErclLyTMBw_ZqykvVpVAsB11LfqYydpQyQ9Ynr1VkDfhGfrpE7NjxL6WfXEDKb1WT7sRNio1cTZvIjIqHukvDH3tz8SWUl8GN8fmd67Ikx3i1TqcYWVzBH40RD3IezzoyN6Xj5';
     $messaging = $firebase->getMessaging();
     $message = CloudMessage::fromArray([
         'token' => $deviceToken,
@@ -32,7 +32,9 @@ class Fire extends ApiController {
             'click_action' => 'https://trip.web.shari.tw/',
         ],
     ]);
+
     $messaging->send($message);
+    
 
     print_r($messaging);
     die;

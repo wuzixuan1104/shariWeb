@@ -10,5 +10,7 @@
   </head>
   <body lang="zh-tw">
     Hello, World
+    <div class="name">TEST</div>
+    <div class="date">DATE</div>
   </body>
 </html>
