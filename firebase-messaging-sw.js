@@ -22,15 +22,26 @@ messaging.setBackgroundMessageHandler(function(payload) {
     body: payload.data.body
   };
   
-  console.log(options);
-  // self.addEventListener('notificationclick', function(e) {
-  //   e.preventDefault();
-  //   console.log('notify',payload);
-  //   // self.open(payload.data.click_action);
-  //   // Do something as the result of the notification click
-  // });
+  const promiseChain = clients.matchAll({
+    type: 'window',
+    includeUncontrolled: true
+  })
+  .then(function(windowClients) {
+    for (let i = 0; i < windowClients.length; i++) {
+      const windowClient = windowClients[i];
+      windowClient.postMessage(data);
+    }
+  })
+  .then(function() {
+    return registration.showNotification(title, options);
+  });
+  return promiseChain;
 
-  return self.registration.showNotification(title, options);
+  // return self.registration.showNotification(title, options);
+});
+
+navigator.serviceWorker.addEventListener('message', function(event) {
+  console.log('Received a message from service worker: ', event.data);
 });
 
 
