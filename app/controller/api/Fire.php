@@ -21,7 +21,7 @@ class Fire extends ApiController {
 
 
     /* notification */
-    $deviceToken = 'cQP9tjgSnn4:APA91bHllq5fdKEnllCaIyyVh1roESpFOHZtUj_uuAXZDI-HRsuh8Ow-LmZLo1NUVbkSUEYqOvT3L8ZBTSZARZA1GC5FSZQjT8bV9BhvGGXZq7Gd2PN-mlKwRwyuB8pVbTBioV7j0tul';
+    $deviceToken = 'etjufFqGmFM:APA91bH72RuX_8my_yxshbuRyzFGuAtU9ug-nS93SnhIcxYLjGcy6Y6JB8JQKBWuhYmB-cFRmGLU01uEWP3gvByr7oSq41sGT08uaLYrgpOjGmLXGru0TktAdQ_YSikCA2Icgcjqq2aa';
     $messaging = $firebase->getMessaging();
     $message = CloudMessage::fromArray([
         'token' => $deviceToken,

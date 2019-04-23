@@ -9,7 +9,12 @@ class Main extends Controller {
 
   public function index() {
     echo 'Hello World';
-    return View::create('site/Main/index.php');
+    $asset = Asset::create()
+                ->addJS('/asset/js/res/jquery-1.10.2.min.js')
+                ->addJS('/asset/js/site/Main/index.js');
+
+    return View::create('site/Main/index.php')
+                ->with('asset', $asset);
   }
 
   public function login() {
