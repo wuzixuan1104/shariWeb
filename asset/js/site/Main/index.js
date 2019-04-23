@@ -50,11 +50,11 @@ $(function () {
             var notifyMsg = payload.notification;
             var notification = new Notification(notifyMsg.title, {
                 body: notifyMsg.body,
-                icon: notifyMsg.icon
+                icon: payload.data.icon
             });
             notification.onclick = function (e) {
                 e.preventDefault();
-                window.open(notifyMsg.click_action);
+                window.open(payload.data.click_action);
             }
         });
 

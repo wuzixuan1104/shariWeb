@@ -26,17 +26,15 @@ class Fire extends ApiController {
     $message = CloudMessage::fromArray([
         'token' => $deviceToken,
         'notification' => [
-            'icon' => '/asset/img/me.png',
+            'icon' => 'https://trip.web.shari.tw/asset/img/me.png',
             'title' => 'Shari 傳送訊息',
             'body' => '你今天吃飽沒？',
             'click_action' => 'https://trip.web.shari.tw/',
         ],
-        // 'data' => [
-        //     'icon' => '/asset/img/me.png',
-        //     'title' => 'Shari 傳送訊息',
-        //     'status' => '你今天吃飽沒？',
-        //     'click_action' => 'https://trip.web.shari.tw/',
-        // ],
+        'data' => [
+            'icon' => '/asset/img/me.png',
+            'click_action' => 'https://trip.web.shari.tw/',
+        ],
     ]);
 
     $messaging->send($message);
