@@ -54,7 +54,7 @@ $(function () {
             });
             notification.onclick = function (e) {
                 e.preventDefault();
-                if (payload.data.us_profile_id != 3 ) {
+                if (payload.data.us_profile_id != '3' ) {
                     console.log('目前已在所屬位置');
                 } else {
                     console.log('trigger change user');
