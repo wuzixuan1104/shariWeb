@@ -23,16 +23,11 @@ messaging.setBackgroundMessageHandler(function(payload) {
     data: payload.data
   };
 
-  // event.waitUntil(
-  //   self.registration.showNotification(title, options)
-  // );
-
   return self.registration.showNotification(title, options);
 });
 
 self.addEventListener('notificationclick', function(event) {
-  console.log(event.notification);
-  const pageUrl = 'https://trip.web.shari.tw/';
+  const pageUrl = event.notification.data.click_action;
 
   const urlToOpen = new URL(pageUrl, self.location.origin).href;
 
