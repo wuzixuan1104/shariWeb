@@ -19,9 +19,10 @@ $(function () {
     }
 
     getFirebaseConfig().then(function(config) {
+        const server = new token2Server();
+
         firebase.initializeApp(config);
 
-        console.log(firebase);
         const messaging = firebase.messaging();
 
         getCurrentToken();
@@ -31,8 +32,10 @@ $(function () {
             messaging.getToken().then(function(refreshedToken) {
                 console.log('Token 重新更新');
                 //將token更新 呼叫後端ＡＰＩ
-                setTokenSentToServer(false);
-                sendTokenToServer(refreshedToken);
+                server.set2Send(false);
+                server.send(refreshedToken);
+                // setTokenSentToServer(false);
+                // sendTokenToServer(refreshedToken);
 
             }).catch(function(err) {
                 console.log('無法取得最新 Token ', err);
@@ -64,14 +67,17 @@ $(function () {
             messaging.getToken().then(function(token) {
                 if (token) {
                     console.log(token);
-                    sendTokenToServer(token);
+                    server.send(token);
+                    // sendTokenToServer(token);
                 } else {
                     setRequestPermission();
-                    setTokenSentToServer(false);
+                    // setTokenSentToServer(false);
+                    server.set2Send(false);
                 }
             }).catch(function(err) {
                 console.log('取得 Token 發生錯誤. ', err);
-                setTokenSentToServer(false);
+                // setTokenSentToServer(false);
+                server.set2Send(false);
             });
         }
 
@@ -93,20 +99,20 @@ $(function () {
         });
     }
     
-    function sendTokenToServer(currentToken) {
-        if (!isTokenSentToServer()) {
-          console.log('將 Token 更新至資料庫');
-          setTokenSentToServer(true);
-        } else {
-          console.log('Token 已是最新狀態');
-        }
-    }
+    // function sendTokenToServer(currentToken) {
+    //     if (!isTokenSentToServer()) {
+    //       console.log('將 Token 更新至資料庫');
+    //       setTokenSentToServer(true);
+    //     } else {
+    //       console.log('Token 已是最新狀態');
+    //     }
+    // }
 
-    function isTokenSentToServer() {
-        return window.localStorage.getItem('sentToServer') === '1';
-    }
+    // function isTokenSentToServer() {
+    //     return window.localStorage.getItem('sentToServer') === '1';
+    // }
 
-    function setTokenSentToServer(sent) {
-        window.localStorage.setItem('sentToServer', sent ? '1' : '0');
-    } 
+    // function setTokenSentToServer(sent) {
+    //     window.localStorage.setItem('sentToServer', sent ? '1' : '0');
+    // } 
 });
