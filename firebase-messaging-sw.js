@@ -22,13 +22,14 @@ messaging.setBackgroundMessageHandler(function(payload) {
     body: payload.data.body
   };
   
+  self.addEventListener('notificationclick', function(e) {
+    e.preventDefault();
+    console.log('notify',payload);
+
+    // Do something as the result of the notification click
+  });
 
   return self.registration.showNotification(title, options);
 });
 
-self.addEventListener('notificationclick', function(event) {
-  console.log(event.notification);
-  console.log('background click');
 
-  // Do something as the result of the notification click
-});
