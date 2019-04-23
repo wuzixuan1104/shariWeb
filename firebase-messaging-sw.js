@@ -19,10 +19,15 @@ messaging.setBackgroundMessageHandler(function(payload) {
   const options = {
     click_action: payload.data.click_action,
     icon: payload.data.icon,
-    body: payload.data.body
+    body: payload.data.body,
+    data: payload.data
   };
 
-  return self.registration.showNotification(title, options);
+  event.waitUntil(
+    self.registration.showNotification(title, options)
+  );
+
+  // return self.registration.showNotification(title, options);
 });
 
 self.addEventListener('notificationclick', function(event) {
