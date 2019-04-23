@@ -34,8 +34,6 @@ $(function () {
                 //將token更新 呼叫後端ＡＰＩ
                 server.set2Send(false);
                 server.send(refreshedToken);
-                // setTokenSentToServer(false);
-                // sendTokenToServer(refreshedToken);
 
             }).catch(function(err) {
                 console.log('無法取得最新 Token ', err);
@@ -52,7 +50,6 @@ $(function () {
             };
         });
 
-
         // realtime DB
         var csRef = firebase.database().ref('cs/1');
         csRef.on('value', function(snapshot) {
@@ -61,22 +58,18 @@ $(function () {
             console.log(snapshot.val());
         });
 
-
         // 取得目前的 Token
         function getCurrentToken() {
             messaging.getToken().then(function(token) {
                 if (token) {
                     console.log(token);
                     server.send(token);
-                    // sendTokenToServer(token);
                 } else {
                     setRequestPermission();
-                    // setTokenSentToServer(false);
                     server.set2Send(false);
                 }
             }).catch(function(err) {
                 console.log('取得 Token 發生錯誤. ', err);
-                // setTokenSentToServer(false);
                 server.set2Send(false);
             });
         }
@@ -88,7 +81,7 @@ $(function () {
                 console.log('允許推播的權限');
 
             }).catch(function(err) {
-                console.log('不允許推播', err);
+                console.log('設定推播發生錯誤', err);
             });
         }
     }); 
@@ -98,21 +91,4 @@ $(function () {
             return data;
         });
     }
-    
-    // function sendTokenToServer(currentToken) {
-    //     if (!isTokenSentToServer()) {
-    //       console.log('將 Token 更新至資料庫');
-    //       setTokenSentToServer(true);
-    //     } else {
-    //       console.log('Token 已是最新狀態');
-    //     }
-    // }
-
-    // function isTokenSentToServer() {
-    //     return window.localStorage.getItem('sentToServer') === '1';
-    // }
-
-    // function setTokenSentToServer(sent) {
-    //     window.localStorage.setItem('sentToServer', sent ? '1' : '0');
-    // } 
 });

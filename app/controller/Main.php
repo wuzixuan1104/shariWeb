@@ -8,7 +8,6 @@ class Main extends Controller {
   }
 
   public function index() {
-    echo 'Hello World';
     $asset = Asset::create()
                 ->addJS('/asset/js/res/jquery-1.10.2.min.js')
                 ->addJS('/asset/js/site/Main/index.js');
