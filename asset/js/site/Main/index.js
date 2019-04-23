@@ -21,8 +21,11 @@ $(function () {
     getFirebaseConfig().then(function(config) {
         firebase.initializeApp(config);
 
+        console.log(firebase);
         const messaging = firebase.messaging();
 
+        getCurrentToken();
+        
         // Token 更新
         messaging.onTokenRefresh(function() {
             messaging.getToken().then(function(refreshedToken) {
