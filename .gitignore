@@ -1,6 +1,7 @@
 .DS_Store
 sftp-config*
 firebase_credentials.json
+firebaseConfig.json
 
 !app/*/.htaccess
 
