@@ -58,7 +58,12 @@ $(function () {
             };
 
             const notification = new Notification(title, options);
-
+            
+            notification.onclick = function(event) {
+                event.preventDefault(); // prevent the browser from focusing the Notification's tab
+                window.open(data.click_action , '_blank');
+                notification.close();
+            }
             // return self.registration.showNotification(title, options);
         });
 
