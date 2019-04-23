@@ -51,7 +51,7 @@ $(function () {
 
             console.log('url:', location.href, 'click:', data.click_action);
 
-            if (data.click_action != location.href ) {
+            // if (data.click_action != location.href ) {
                 //不在最新推播的頁面需要變動頁面
                 const notification = new Notification(data.title, {
                     body: data.body,
@@ -61,41 +61,38 @@ $(function () {
                 notification.onclick = function (e) {
                     e.preventDefault();
                     console.log('trigger change user');
-                    // window.open(payload.data.click_action);
+                    console.log('self:', self.location.origin);
+                    
+                    const urlToOpen = new URL(data.click_action, self.location.origin).href;
+
+                    const promiseChain = clients.matchAll({
+                        type: 'window',
+                        includeUncontrolled: true
+                    })
+                    .then((windowClients) => {
+                        let matchingClient = null;
+
+                        for (let i = 0; i < windowClients.length; i++) {
+                          const windowClient = windowClients[i];
+                          if (windowClient.url === urlToOpen) {
+                            matchingClient = windowClient;
+                            break;
+                          }
+                        }
+
+                        if (matchingClient) {
+                          return matchingClient.focus();
+                        } else {
+                          return clients.openWindow(urlToOpen);
+                        }
+                    });
+
+                    e.waitUntil(promiseChain);
                 }
-
-                // self.addEventListener('notificationclick', function(event) {
-                //   const pageUrl = event.notification.data.click_action;
-
-                //   const urlToOpen = new URL(pageUrl, self.location.origin).href;
-
-                //   const promiseChain = clients.matchAll({
-                //     type: 'window',
-                //     includeUncontrolled: true
-                //   })
-                //   .then((windowClients) => {
-                //     let matchingClient = null;
-
-                //     for (let i = 0; i < windowClients.length; i++) {
-                //       const windowClient = windowClients[i];
-                //       if (windowClient.url === urlToOpen) {
-                //         matchingClient = windowClient;
-                //         break;
-                //       }
-                //     }
-
-                //     if (matchingClient) {
-                //       return matchingClient.focus();
-                //     } else {
-                //       return clients.openWindow(urlToOpen);
-                //     }
-                //   });
-
-                //   event.waitUntil(promiseChain);
                 // });
-            } else {
-                console.log('目前已在該 User 頁面');
-            }
+            // } else {
+            //     console.log('目前已在該 User 頁面');
+            // }
         });
 
         // realtime DB
