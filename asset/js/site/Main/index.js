@@ -54,7 +54,12 @@ $(function () {
             });
             notification.onclick = function (e) {
                 e.preventDefault();
-                window.open(payload.data.click_action);
+                if (payload.data.us_profile_id != 3 ) {
+                    console.log('目前已在所屬位置');
+                } else {
+                    console.log('trigger change user');
+                    // window.open(payload.data.click_action);
+                }
             }
         });
 
