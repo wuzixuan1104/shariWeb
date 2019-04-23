@@ -58,13 +58,12 @@ $(function () {
             };
 
             const notification = new Notification(title, options);
-            
+
             notification.onclick = function(event) {
                 event.preventDefault(); // prevent the browser from focusing the Notification's tab
                 window.open(data.click_action , '_blank');
                 notification.close();
             }
-            // return self.registration.showNotification(title, options);
         });
 
         // realtime DB
@@ -110,37 +109,4 @@ $(function () {
             return data;
         });
     }
-
-    self.addEventListener('notificationclick', function(event) {
-        console.log('botify click');
-        const pageUrl = event.notification.data.click_action;
-
-        console.log('page:', pageUrl, 'origin:', self.location.origin);
-
-        const urlToOpen = new URL(pageUrl, self.location.origin).href;
-
-        const promiseChain = clients.matchAll({
-            type: 'window',
-            includeUncontrolled: true
-        })
-        .then((windowClients) => {
-            let matchingClient = null;
-
-            for (let i = 0; i < windowClients.length; i++) {
-                const windowClient = windowClients[i];
-                if (windowClient.url === urlToOpen) {
-                    matchingClient = windowClient;
-                    break;
-                }
-            }
-
-            if (matchingClient) {
-                return matchingClient.focus();
-            } else {
-                return clients.openWindow(urlToOpen);
-            }
-        });
-
-        event.waitUntil(promiseChain);
-    });
 });
