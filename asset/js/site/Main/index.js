@@ -47,13 +47,12 @@ $(function () {
         messaging.onMessage(function(payload) {
             console.log('收到推播：', payload);
 
-            const notify = payload.notification;
             const data = payload.data;
 
             if (data.us_profile_id != '3' ) {
                 //不在最新推播的頁面需要變動頁面
-                const notification = new Notification(notify.title, {
-                    body: notify.body,
+                const notification = new Notification(data.title, {
+                    body: data.body,
                     icon: data.icon
                 });
 
@@ -63,7 +62,7 @@ $(function () {
                     // window.open(payload.data.click_action);
                 }
             } else {
-                console.log('目前已在所屬位置');
+                console.log('目前已在該 User 頁面');
             }
         });
 

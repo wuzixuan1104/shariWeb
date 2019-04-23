@@ -19,7 +19,7 @@ messaging.setBackgroundMessageHandler(function(payload) {
   const options = {
     click_action: payload.data.click_action,
     icon: payload.data.icon,
-    body: payload.data.status
+    body: payload.data.body
   };
 
   // if (!("Notification" in window)) {
