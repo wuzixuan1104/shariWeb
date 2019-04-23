@@ -47,19 +47,23 @@ $(function () {
         messaging.onMessage(function(payload) {
             console.log('收到推播：', payload);
 
-            var notifyMsg = payload.notification;
-            var notification = new Notification(notifyMsg.title, {
-                body: notifyMsg.body,
-                icon: payload.data.icon
-            });
-            notification.onclick = function (e) {
-                e.preventDefault();
-                if (payload.data.us_profile_id != '3' ) {
-                    console.log('目前已在所屬位置');
-                } else {
+            const notify = payload.notification;
+            const data = payload.data;
+
+            if (data.us_profile_id != '3' ) {
+                //不在最新推播的頁面需要變動頁面
+                const notification = new Notification(notify.title, {
+                    body: notify.body,
+                    icon: data.icon
+                });
+
+                notification.onclick = function (e) {
+                    e.preventDefault();
                     console.log('trigger change user');
                     // window.open(payload.data.click_action);
                 }
+            } else {
+                console.log('目前已在所屬位置');
             }
         });
 

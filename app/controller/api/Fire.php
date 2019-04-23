@@ -32,7 +32,7 @@ class Fire extends ApiController {
         'data' => [
             'icon' => '/asset/img/me.png',
             'click_action' => '/',
-            'us_profile_id' => '3',
+            'us_profile_id' => '2',
         ],
     ]);
 
