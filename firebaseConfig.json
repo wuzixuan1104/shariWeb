@@ -1,8 +1,0 @@
-{
-    "apiKey": "AIzaSyAKJ4shHKjGJJKSAYyeNLJLdy2UhxoHM4g",
-    "authDomain": "tripsaas-test.firebaseapp.com",
-    "databaseURL": "https://tripsaas-test.firebaseio.com",
-    "projectId": "tripsaas-test",
-    "storageBucket": "tripsaas-test.appspot.com",
-    "messagingSenderId": "612781458571"
-}
