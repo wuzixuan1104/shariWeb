@@ -57,7 +57,9 @@ $(function () {
                 data: data
             };
 
-            return self.registration.showNotification(title, options);
+            const notification = new Notification(title, options);
+
+            // return self.registration.showNotification(title, options);
         });
 
         // realtime DB
