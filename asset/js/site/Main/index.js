@@ -25,7 +25,7 @@ $(function () {
         const messaging = firebase.messaging();
 
         getCurrentToken();
-        
+
         // Token 更新
         messaging.onTokenRefresh(function() {
             messaging.getToken().then(function(refreshedToken) {
@@ -63,6 +63,7 @@ $(function () {
         function getCurrentToken() {
             messaging.getToken().then(function(token) {
                 if (token) {
+                    console.log(token);
                     sendTokenToServer(token);
                 } else {
                     setRequestPermission();
