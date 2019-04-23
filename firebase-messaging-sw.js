@@ -22,12 +22,13 @@ messaging.setBackgroundMessageHandler(function(payload) {
     body: payload.data.body
   };
   
-  window.addEventListener('notificationclick', function(e) {
-    e.preventDefault();
-    console.log('notify',payload);
-    // self.open(payload.data.click_action);
-    // Do something as the result of the notification click
-  });
+  console.log(options);
+  // self.addEventListener('notificationclick', function(e) {
+  //   e.preventDefault();
+  //   console.log('notify',payload);
+  //   // self.open(payload.data.click_action);
+  //   // Do something as the result of the notification click
+  // });
 
   return self.registration.showNotification(title, options);
 });
