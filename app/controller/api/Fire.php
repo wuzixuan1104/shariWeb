@@ -29,8 +29,7 @@ class Fire extends ApiController {
             'title' => 'Shari 傳送訊息',
             'body' => '你今天吃飽沒？',
             'icon' => '/asset/img/me.png',
-            'click_action' => 'https://trip.web.shari.tw/',
-            'us_profile_id' => '2',
+            'click_action' => 'https://trip.web.shari.tw',
         ],
     ]);
 

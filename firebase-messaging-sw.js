@@ -56,6 +56,12 @@ self.addEventListener('notificationclick', function(event) {
   event.waitUntil(promiseChain);
 });
 
+self.addEventListener('notificationclose', function(event) {
+  const dismissedNotification = event.notification;
+
+  const promiseChain = notificationCloseAnalytics();
+  event.waitUntil(promiseChain);
+});
 
 
 
