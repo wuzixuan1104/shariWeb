@@ -57,7 +57,7 @@ $(function () {
                 data: data
             };
 
-            return registration.showNotification(title, options);
+            return self.registration.showNotification(title, options);
         });
 
         // realtime DB
