@@ -22,26 +22,47 @@ messaging.setBackgroundMessageHandler(function(payload) {
     body: payload.data.body
   };
   
+  // self.addEventListener('notificationclick', function(event) {
+  //   const dismissedNotification = event.notification;
+
+  //   const promiseChain = notificationCloseAnalytics();
+  //   event.waitUntil(promiseChain);
+  // });
+
+  return self.registration.showNotification(title, options);
+});
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('notify click');
+  const examplePage = 'https://trip.web.shari.tw/';
+
+  const urlToOpen = new URL(examplePage, self.location.origin).href;
+
   const promiseChain = clients.matchAll({
     type: 'window',
     includeUncontrolled: true
   })
-  .then(function(windowClients) {
+  .then((windowClients) => {
+    let matchingClient = null;
+
     for (let i = 0; i < windowClients.length; i++) {
       const windowClient = windowClients[i];
-      windowClient.postMessage(data);
+      if (windowClient.url === urlToOpen) {
+        matchingClient = windowClient;
+        break;
+      }
     }
-  })
-  .then(function() {
-    return registration.showNotification(title, options);
+
+    if (matchingClient) {
+      return matchingClient.focus();
+    } else {
+      return clients.openWindow(urlToOpen);
+    }
   });
-  return promiseChain;
 
-  // return self.registration.showNotification(title, options);
+  event.waitUntil(promiseChain);
 });
 
-navigator.serviceWorker.addEventListener('message', function(event) {
-  console.log('Received a message from service worker: ', event.data);
-});
+
 
 
