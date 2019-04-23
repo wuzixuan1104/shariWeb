@@ -49,8 +49,8 @@ $(function () {
 
             const data = payload.data;
 
-            console.log('url:', location.href);
-            
+            console.log('url:', location.href, 'click:', data.click_action);
+
             if (data.click_action != location.href ) {
                 //不在最新推播的頁面需要變動頁面
                 const notification = new Notification(data.title, {
