@@ -49,50 +49,15 @@ $(function () {
 
             const data = payload.data;
 
-            console.log('url:', location.href, 'click:', data.click_action);
+            const title = data.title;
+            const options = {
+                click_action: data.click_action,
+                icon: data.icon,
+                body: data.body,
+                data: data
+            };
 
-            // if (data.click_action != location.href ) {
-                //不在最新推播的頁面需要變動頁面
-                const notification = new Notification(data.title, {
-                    body: data.body,
-                    icon: data.icon
-                });
-
-                notification.onclick = function (e) {
-                    e.preventDefault();
-                    console.log('trigger change user');
-                    console.log('self:', self.location.origin);
-                    
-                    const urlToOpen = new URL(data.click_action, self.location.origin).href;
-
-                    const promiseChain = clients.matchAll({
-                        type: 'window',
-                        includeUncontrolled: true
-                    })
-                    .then((windowClients) => {
-                        let matchingClient = null;
-
-                        for (let i = 0; i < windowClients.length; i++) {
-                          const windowClient = windowClients[i];
-                          if (windowClient.url === urlToOpen) {
-                            matchingClient = windowClient;
-                            break;
-                          }
-                        }
-
-                        if (matchingClient) {
-                          return matchingClient.focus();
-                        } else {
-                          return clients.openWindow(urlToOpen);
-                        }
-                    });
-
-                    e.waitUntil(promiseChain);
-                }
-                // });
-            // } else {
-            //     console.log('目前已在該 User 頁面');
-            // }
+            return registration.showNotification(title, options);
         });
 
         // realtime DB
@@ -138,4 +103,37 @@ $(function () {
             return data;
         });
     }
+
+    self.addEventListener('notificationclick', function(event) {
+        console.log('botify click');
+        const pageUrl = event.notification.data.click_action;
+
+        console.log('page:', pageUrl, 'origin:', self.location.origin);
+
+        const urlToOpen = new URL(pageUrl, self.location.origin).href;
+
+        const promiseChain = clients.matchAll({
+            type: 'window',
+            includeUncontrolled: true
+        })
+        .then((windowClients) => {
+            let matchingClient = null;
+
+            for (let i = 0; i < windowClients.length; i++) {
+                const windowClient = windowClients[i];
+                if (windowClient.url === urlToOpen) {
+                    matchingClient = windowClient;
+                    break;
+                }
+            }
+
+            if (matchingClient) {
+                return matchingClient.focus();
+            } else {
+                return clients.openWindow(urlToOpen);
+            }
+        });
+
+        event.waitUntil(promiseChain);
+    });
 });
