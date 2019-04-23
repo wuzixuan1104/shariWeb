@@ -46,12 +46,16 @@ $(function () {
         // 前景收到推播訊息
         messaging.onMessage(function(payload) {
             console.log('收到推播：', payload);
-            const title = payload.data.title;
-            const options = {
-                body: payload.data.status,
-                icon: payload.data.icon,        
-            };
-            return self.registration.showNotification(title, options);
+
+            var notifyMsg = payload.notification;
+            var notification = new Notification(notifyMsg.title, {
+                body: notifyMsg.body,
+                icon: notifyMsg.icon
+            });
+            notification.onclick = function (e) {
+                e.preventDefault();
+                window.open(notifyMsg.click_action);
+            }
         });
 
         // realtime DB
