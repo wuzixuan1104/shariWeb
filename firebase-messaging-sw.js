@@ -21,22 +21,15 @@ messaging.setBackgroundMessageHandler(function(payload) {
     icon: payload.data.icon,
     body: payload.data.body
   };
-  
-  // self.addEventListener('notificationclick', function(event) {
-  //   const dismissedNotification = event.notification;
-
-  //   const promiseChain = notificationCloseAnalytics();
-  //   event.waitUntil(promiseChain);
-  // });
 
   return self.registration.showNotification(title, options);
 });
 
 self.addEventListener('notificationclick', function(event) {
-  console.log('notify click');
-  const examplePage = 'https://trip.web.shari.tw/';
+  console.log(event.notification);
+  const pageUrl = 'https://trip.web.shari.tw/';
 
-  const urlToOpen = new URL(examplePage, self.location.origin).href;
+  const urlToOpen = new URL(pageUrl, self.location.origin).href;
 
   const promiseChain = clients.matchAll({
     type: 'window',
