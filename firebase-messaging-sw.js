@@ -23,11 +23,11 @@ messaging.setBackgroundMessageHandler(function(payload) {
     data: payload.data
   };
 
-  event.waitUntil(
-    self.registration.showNotification(title, options)
-  );
+  // event.waitUntil(
+  //   self.registration.showNotification(title, options)
+  // );
 
-  // return self.registration.showNotification(title, options);
+  return self.registration.showNotification(title, options);
 });
 
 self.addEventListener('notificationclick', function(event) {
