@@ -49,8 +49,9 @@ $(function () {
 
             const data = payload.data;
 
+            console.log('url:', location.href);
             
-            if (data.click_action != 'https://trip.web.shari.tw/3' ) {
+            if (data.click_action != location.href ) {
                 //不在最新推播的頁面需要變動頁面
                 const notification = new Notification(data.title, {
                     body: data.body,
