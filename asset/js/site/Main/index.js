@@ -68,10 +68,8 @@ $(function () {
 
         console.log('test');
         // realtime DB
-        const msgRef = firebase.database().ref('/msg');
-        console.log(msgRef);
+        const msgRef = firebase.database().ref('msg');
         msgRef.on('value', function(snapshot) {
-            console.log(1232323);
             console.log(snapshot.val());
         });
 
