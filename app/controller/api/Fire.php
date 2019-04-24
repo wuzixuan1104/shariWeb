@@ -21,19 +21,23 @@ class Fire extends ApiController {
 
 
     /* notification */
-    $deviceToken = 'fJrRjIzAiGs:APA91bErclLyTMBw_ZqykvVpVAsB11LfqYydpQyQ9Ynr1VkDfhGfrpE7NjxL6WfXEDKb1WT7sRNio1cTZvIjIqHukvDH3tz8SWUl8GN8fmd67Ikx3i1TqcYWVzBH40RD3IezzoyN6Xj5';
+    $tokens = ['fJrRjIzAiGs:APA91bErclLyTMBw_ZqykvVpVAsB11LfqYydpQyQ9Ynr1VkDfhGfrpE7NjxL6WfXEDKb1WT7sRNio1cTZvIjIqHukvDH3tz8SWUl8GN8fmd67Ikx3i1TqcYWVzBH40RD3IezzoyN6Xj5', 'e99a6UYSguU:APA91bFj6MtviqlNmw_FLk6TytnbXj6IUpTV0ZzMs4fpbfdhvNY-10VA_ksNH0wkckbrpwMm0n_DjqWUkOdFtd0tgW4JxnDL5fGkU_60KGZhWrOgoB3hsQs1gTUHJ-QspTjNUOK9C2My'];
     $messaging = $firebase->getMessaging();
-    $message = CloudMessage::fromArray([
-        'token' => $deviceToken,
-        'data' => [
-            'title' => 'Shari 傳送訊息',
-            'body' => '你今天吃飽沒？',
-            'icon' => '/asset/img/me.png',
-            'click_action' => 'https://trip.web.shari.tw/',
-        ],
-    ]);
 
-    $messaging->send($message);
+    foreach($tokens as $token) {
+        $message = CloudMessage::fromArray([
+            'token' => $token,
+            'data' => [
+                'title' => 'Shari 傳送訊息',
+                'body' => '你今天吃飽沒？',
+                'icon' => '/asset/img/me.png',
+                'click_action' => 'https://trip.web.shari.tw/',
+            ],
+        ]);
+
+        
+        $messaging->send($message);
+    }
     
 
     print_r($messaging);

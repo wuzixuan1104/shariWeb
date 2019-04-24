@@ -67,13 +67,9 @@ $(function () {
         });
 
         // realtime DB
-        var csRef = firebase.database().ref('cs/1');
+        var csRef = firebase.database().ref('msg/');
         csRef.on('value', function(snapshot) {
-            var key = snapshot.key;
-            console.log('key:', key);
             console.log(snapshot.val());
-            $('.name').text('Shari');
-            $('.date').text(snapshot.val().date);
         });
 
         // 取得目前的 Token
