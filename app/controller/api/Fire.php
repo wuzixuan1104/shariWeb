@@ -47,15 +47,15 @@ class Fire extends ApiController {
                         'title' => 'Shari 傳送訊息',
                         'body' => $msg['text'],
                         'icon' => '/asset/img/me.png',
-                        'click_action' => 'https://trip.web.shari.tw/?us_profile_id=',
+                        'click_action' => 'https://trip.web.shari.tw/chat/',
                     ],
                 ]);
 
                 $messaging->send($message);
 
-                die (json_encode(['finish']));
+                
             }
-            
+            die (json_encode(['finish']));
             // 取得客服 token 
                    
             // 新增 cs_chat_dialog
@@ -78,38 +78,7 @@ class Fire extends ApiController {
     //     $msg = array_shift(array);
     //     die;
     // } while ($msgs);
-    
 
-    die (json_encode(['finish']));
-    /* realtime */
-   
-    $reference = $db->getReference('cs/1');
-    $reference->set([
-       'date' => date('Y-m-d H:i:s'),
-    ]);
-
-
-    /* notification */
-    $tokens = ['fJrRjIzAiGs:APA91bErclLyTMBw_ZqykvVpVAsB11LfqYydpQyQ9Ynr1VkDfhGfrpE7NjxL6WfXEDKb1WT7sRNio1cTZvIjIqHukvDH3tz8SWUl8GN8fmd67Ikx3i1TqcYWVzBH40RD3IezzoyN6Xj5', 'e99a6UYSguU:APA91bFj6MtviqlNmw_FLk6TytnbXj6IUpTV0ZzMs4fpbfdhvNY-10VA_ksNH0wkckbrpwMm0n_DjqWUkOdFtd0tgW4JxnDL5fGkU_60KGZhWrOgoB3hsQs1gTUHJ-QspTjNUOK9C2My'];
-    $messaging = $firebase->getMessaging();
-
-    foreach($tokens as $token) {
-        $message = CloudMessage::fromArray([
-            'token' => $token,
-            'data' => [
-                'title' => 'Shari 傳送訊息',
-                'body' => '你今天吃飽沒？',
-                'icon' => '/asset/img/me.png',
-                'click_action' => 'https://trip.web.shari.tw/',
-            ],
-        ]);
-
-        
-        $messaging->send($message);
-    }
-    
-
-    print_r($messaging);
     die;
   }
 
