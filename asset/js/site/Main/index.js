@@ -66,9 +66,11 @@ $(function () {
             }
         });
 
+        console.log('test');
         // realtime DB
         var csRef = firebase.database().ref('msg/');
         csRef.on('value', function(snapshot) {
+            console.log(1232323);
             console.log(snapshot.val());
         });
 
