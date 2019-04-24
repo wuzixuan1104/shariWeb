@@ -1,5 +1,6 @@
-importScripts('https://www.gstatic.com/firebasejs/4.5.2/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/4.5.2/firebase-messaging.js');
+// importScripts('https://www.gstatic.com/firebasejs/4.5.2/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/5.10.0/firebase-messaging.js');
 
 var config = {
         apiKey: "AIzaSyAKJ4shHKjGJJKSAYyeNLJLdy2UhxoHM4g",
@@ -26,35 +27,35 @@ messaging.setBackgroundMessageHandler(function(payload) {
   return self.registration.showNotification(title, options);
 });
 
-self.addEventListener('notificationclick', function(event) {
-  const pageUrl = event.notification.data.click_action;
+// self.addEventListener('notificationclick', function(event) {
+//   const pageUrl = event.notification.data.click_action;
 
-  const urlToOpen = new URL(pageUrl, self.location.origin).href;
+//   const urlToOpen = new URL(pageUrl, self.location.origin).href;
 
-  const promiseChain = clients.matchAll({
-    type: 'window',
-    includeUncontrolled: true
-  })
-  .then((windowClients) => {
-    let matchingClient = null;
+//   const promiseChain = clients.matchAll({
+//     type: 'window',
+//     includeUncontrolled: true
+//   })
+//   .then((windowClients) => {
+//     let matchingClient = null;
 
-    for (let i = 0; i < windowClients.length; i++) {
-      const windowClient = windowClients[i];
-      if (windowClient.url === urlToOpen) {
-        matchingClient = windowClient;
-        break;
-      }
-    }
+//     for (let i = 0; i < windowClients.length; i++) {
+//       const windowClient = windowClients[i];
+//       if (windowClient.url === urlToOpen) {
+//         matchingClient = windowClient;
+//         break;
+//       }
+//     }
 
-    if (matchingClient) {
-      return matchingClient.focus();
-    } else {
-      return clients.openWindow(urlToOpen);
-    }
-  });
+//     if (matchingClient) {
+//       return matchingClient.focus();
+//     } else {
+//       return clients.openWindow(urlToOpen);
+//     }
+//   });
 
-  event.waitUntil(promiseChain);
-});
+//   event.waitUntil(promiseChain);
+// });
 
 
 

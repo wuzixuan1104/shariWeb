@@ -47,7 +47,7 @@ class Fire extends ApiController {
                         'title' => 'Shari 傳送訊息',
                         'body' => $msg['text'],
                         'icon' => '/asset/img/me.png',
-                        'click_action' => 'https://trip.web.shari.tw/chat/',
+                        'click_action' => 'https://trip.web.shari.tw/chat/2',
                     ],
                 ]);
 
