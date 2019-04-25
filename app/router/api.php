@@ -5,5 +5,5 @@ Router::dir('api', function() {
 
   Router::post('liff')->controller('Liff@index');
 
-  Router::get('firebase/realtime')->controller('Fire@realtime');
+  Router::post('firebase/realtime')->controller('Fire@realtime');
 });
