@@ -33,7 +33,7 @@ class Fire extends ApiController {
             $assigns = [
                 [
                     'ae_sn' => '',
-                    'notify_token' => 'cQP9tjgSnn4:APA91bHllq5fdKEnllCaIyyVh1roESpFOHZtUj_uuAXZDI-HRsuh8Ow-LmZLo1NUVbkSUEYqOvT3L8ZBTSZARZA1GC5FSZQjT8bV9BhvGGXZq7Gd2PN-mlKwRwyuB8pVbTBioV7j0tul',
+                    'notify_token' => 'fJrRjIzAiGs:APA91bErclLyTMBw_ZqykvVpVAsB11LfqYydpQyQ9Ynr1VkDfhGfrpE7NjxL6WfXEDKb1WT7sRNio1cTZvIjIqHukvDH3tz8SWUl8GN8fmd67Ikx3i1TqcYWVzBH40RD3IezzoyN6Xj5',
                     'unread_cnt' => 0,
                 ]
             ];
