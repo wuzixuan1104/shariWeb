@@ -21,7 +21,8 @@ $(function () {
         }
     }
 
-    getFirebaseConfig().then(function(config) {
+    $.getJSON('/firebaseConfig.json').then(function(config) {
+        
         const server = new tokenSendToServer('url', '123');
 
         firebase.initializeApp(config);
@@ -100,17 +101,17 @@ $(function () {
 
             }).catch(function(err) {
                 console.log('設定推播發生錯誤', err);
-            });
+            }); 
         }
     }); 
 
-    function getFirebaseConfig() {
-        var a = $.getJSON('/firebaseConfig.json').then(function(data){
-            return data;
-        });
+    // function getFirebaseConfig() {
+    //     var a = $.getJSON('/firebaseConfig.json').then(function(data){
+    //         return data;
+    //     });
 
-        console.log(a);
+    //     console.log(a);
 
-        return a;
-    }
+    //     return a;
+    // }
 });

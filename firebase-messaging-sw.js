@@ -1,13 +1,7 @@
 importScripts('https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/5.10.0/firebase-messaging.js');
 
-function getFirebaseConfig() {
-    return $.getJSON('/firebaseConfig.json').then(function(data){
-        return data;
-    });
-}
-
-getFirebaseConfig().then(function(config) {
+$.getJSON('/firebaseConfig.json').then(function(config) {
   // var config = {
   //         apiKey: "AIzaSyAKJ4shHKjGJJKSAYyeNLJLdy2UhxoHM4g",
   //         authDomain: "tripsaas-test.firebaseapp.com",
@@ -16,7 +10,7 @@ getFirebaseConfig().then(function(config) {
   //         storageBucket: "tripsaas-test.appspot.com",
   //         messagingSenderId: "612781458571"
   //       };
-  
+
 
   firebase.initializeApp(config);
 
