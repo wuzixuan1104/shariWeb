@@ -105,8 +105,12 @@ $(function () {
     }); 
 
     function getFirebaseConfig() {
-        return $.getJSON('/firebaseConfig.json').then(function(data){
+        var a = $.getJSON('/firebaseConfig.json').then(function(data){
             return data;
         });
+
+        console.log(a);
+
+        return a;
     }
 });
