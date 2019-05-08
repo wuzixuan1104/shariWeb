@@ -12,7 +12,7 @@ html body { position: relative; display: inline-block; width: 100%; min-height: 
 
 .container { display: inline-block; width: 100%; padding: 30px 50px; }
 .container > * { display: block; text-align: left; margin-bottom: 10px; }
-.container label { color: #a78a80; font-size: 18px; }
-.container .content { width: 100%; min-height: 100px; background-color: #efd4cb; border: 2px solid #f18c8e; padding: 15px; word-break: break-all; color: #5d4646; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
-.container button { font-size: 15px; padding: 5px 15px; margin-top: 20px; background-color: #f18c8e; color: white; border: 1px solid #e28a8a; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.container label { color: #a78a80; font-size: 20px; }
+.container .content { width: 100%; min-height: 100px; background-color: #efd4cb; border: 2px solid #f18c8e; padding: 15px; word-break: break-all; color: #5d4646; font-size: 20px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.container button { font-size: 18px; padding: 8px 15px; margin-top: 20px; background-color: #f18c8e; color: white; border: 1px solid #e28a8a; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
 .container button:hover { cursor: pointer; }

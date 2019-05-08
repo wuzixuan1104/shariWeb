@@ -67,7 +67,7 @@ html {
   
   label {
     color: #a78a80;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .content {
@@ -78,12 +78,13 @@ html {
     padding: 15px;
     word-break: break-all;
     color: #5d4646;
+    font-size: 20px;
     @include border-radius(5px);
   }
 
   button {
-    font-size: 15px;
-    padding: 5px 15px;
+    font-size: 18px;
+    padding: 8px 15px;
     margin-top: 20px;
     background-color: #f18c8e;
     color: white;
