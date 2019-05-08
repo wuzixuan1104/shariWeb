@@ -28,6 +28,15 @@ class Fire extends ApiController {
       Validator::need($params, 'body', '內容')->isText();
     });
 
+    $db = $this->firebase->getDatabase();
+    $db->getReference('trip_web')
+       ->push([
+            'title' => $params['title'],
+            'body' => $params['body'],
+            'token' => $params['token'],
+            'date' => date('Y-m-d H:i:s'),
+        ]);
+
     $messaging = $this->firebase->getMessaging();
 
     $messaging->send(CloudMessage::fromArray([

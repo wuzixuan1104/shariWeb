@@ -100,12 +100,11 @@ $(function () {
 
         console.log('test');
         // realtime DB
-        const msgRef = firebase.database().ref('msg');
-        msgRef.on('value', function(snapshot) {
+        const notifyRef = firebase.database().ref('trip_web');
+        notifyRef.on('value', function(snapshot) {
+            console.log(snapshot);
             console.log(snapshot.val());
-            $.getJSON('/api/firebase/realtime', function(resp) {
-                console.log(resp);
-            });
+            
         });
 
         // 取得目前的 Token
