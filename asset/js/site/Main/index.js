@@ -1,4 +1,5 @@
 $(function () {
+
     function tokenSendToServer(url, params) {
         this.url = url,
         this.params = params,
@@ -22,7 +23,7 @@ $(function () {
     }
 
     $.getJSON('/firebaseConfig.json').then(function(config) {
-        
+
         const server = new tokenSendToServer('url', '123');
 
         firebase.initializeApp(config);
@@ -104,14 +105,4 @@ $(function () {
             }); 
         }
     }); 
-
-    // function getFirebaseConfig() {
-    //     var a = $.getJSON('/firebaseConfig.json').then(function(data){
-    //         return data;
-    //     });
-
-    //     console.log(a);
-
-    //     return a;
-    // }
 });
