@@ -102,6 +102,7 @@ $(function () {
         const notifyRef = firebase.database().ref('trip_web');
         notifyRef.on('value', function(snapshot) {
             console.log(snapshot.val());
+            $('.history').html('');
             $.each(snapshot.val(), function(idx, val) {
                 $('.history').html(
                     $('<li/>').addClass('box').addClass('icon-54').html(val.title + ' : ' + val.body + ' _ ' + val.date)
