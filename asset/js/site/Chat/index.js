@@ -56,6 +56,18 @@ $(function () {
         const server = new tokenSendToServer('url', '123');
 
         firebase.initializeApp(config);
+        
+        // realtime DB
+        const notifyRef = firebase.database().ref('trip_web');
+        notifyRef.on('value', function(snapshot) {
+            console.log(snapshot.val());
+            $('.history').html('');
+            $.each(snapshot.val(), function(idx, val) {
+                $('.history').prepend(
+                    $('<li/>').addClass('box').addClass('icon-54').html(val.title + ' : ' + val.body + ' _ ' + val.date)
+                );
+            });
+        });
 
         const messaging = firebase.messaging();
 
@@ -95,19 +107,6 @@ $(function () {
                 window.open(data.click_action , '_blank');
                 notification.close();
             }
-        });
-
-        console.log('test');
-        // realtime DB
-        const notifyRef = firebase.database().ref('trip_web');
-        notifyRef.on('value', function(snapshot) {
-            console.log(snapshot.val());
-            $('.history').html('');
-            $.each(snapshot.val(), function(idx, val) {
-                $('.history').prepend(
-                    $('<li/>').addClass('box').addClass('icon-54').html(val.title + ' : ' + val.body + ' _ ' + val.date)
-                );
-            });
         });
 
         // 取得目前的 Token
