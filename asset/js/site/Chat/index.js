@@ -103,7 +103,7 @@ $(function () {
         notifyRef.on('value', function(snapshot) {
             console.log(snapshot.val());
             $.each(snapshot.val(), function(idx, val) {
-                $('.history').append(
+                $('.history').html(
                     $('<li/>').addClass('box').addClass('icon-54').html(val.title + ' : ' + val.body + ' _ ' + val.date)
                 );
             });
