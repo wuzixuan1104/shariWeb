@@ -9,6 +9,7 @@ class Chat extends Controller {
 
   public function index() {
     $asset = Asset::create()
+                ->addCSS('/asset/css/icon-admin.css')
                 ->addCSS('/asset/css/site/Chat/index.css')
                 ->addJS('/asset/js/res/jquery-1.10.2.min.js')
                 ->addJS('/asset/js/site/Chat/index.js');

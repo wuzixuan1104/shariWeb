@@ -5,7 +5,9 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
     <title>Firebase 推播</title>
+
     <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+
     <?php echo $asset->renderCSS(); ?>
     <?php echo $asset->renderJS(); ?>
   </head>
@@ -23,9 +25,13 @@
         <form>
           <input name="title" type="text" placeholder="請輸入標題">
           <input name="body" type="text" placeholder="請輸入內容">
-        <button class="send">發送一則推播給自己</button>
-
+          <button class="send">發送一則推播給自己</button>
         </form>
+
+        <ul class="history">
+          <li class="box icon-54">Shari 發送了一則推播 : 測試測試</li>
+          <li class="box icon-54">Cherry 發送了一則推播 : 測試測試</li>
+        </ul>
       </div>
   </body>
 </html>

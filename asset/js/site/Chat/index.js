@@ -1,6 +1,7 @@
 $(function () {
 
-    $('.send').click(function() {
+    $('.send').click(function(e) {
+        e.preventDefault();
         if ($('.content').text() == 'Can\'t get any token ...') {
             alert('Can\'t get any token ...');
             return false;
@@ -8,7 +9,7 @@ $(function () {
 
         // $.ajax({
         //     url: '/api/firebase/notify',
-            
+
         // });
         console.log('test');
     });
