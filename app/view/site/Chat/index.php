@@ -29,8 +29,7 @@
         </form>
 
         <ul class="history">
-          <li class="box icon-54">Shari 發送了一則推播 : 測試測試</li>
-          <li class="box icon-54">Cherry 發送了一則推播 : 測試測試</li>
+          <!-- <li class="box icon-54">Shari 發送了一則推播 : 測試測試</li> -->
         </ul>
       </div>
   </body>

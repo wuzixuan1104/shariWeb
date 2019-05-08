@@ -1,5 +1,4 @@
 $(function () {
-
     $('.send').click(function(e) {
         e.preventDefault();
         if ($('.content').text() == 'Can\'t get any token ...') {
@@ -102,9 +101,12 @@ $(function () {
         // realtime DB
         const notifyRef = firebase.database().ref('trip_web');
         notifyRef.on('value', function(snapshot) {
-            console.log(snapshot);
             console.log(snapshot.val());
-            
+            $.each(snapshot.val(), function(idx, val) {
+                $('.history').append(
+                    $('<li/>').addClass('box').addClass('icon-54').html(val.title + ' : ' + val.body + ' _ ' + val.date)
+                );
+            });
         });
 
         // 取得目前的 Token
