@@ -102,15 +102,12 @@ $(function () {
         const notifyRef = firebase.database().ref('trip_web');
         notifyRef.on('value', function(snapshot) {
             console.log(snapshot.val());
-            console.log('--------');
             $('.history').html('');
             $.each(snapshot.val(), function(idx, val) {
-                console.log(val);
-                $('.history').html(
+                $('.history').prepend(
                     $('<li/>').addClass('box').addClass('icon-54').html(val.title + ' : ' + val.body + ' _ ' + val.date)
                 );
             });
-            console.log('--------');
         });
 
         // 取得目前的 Token
