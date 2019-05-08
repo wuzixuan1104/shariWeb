@@ -10,15 +10,6 @@
     <?php echo $asset->renderJS(); ?>
   </head>
   <body lang="zh-tw">
-      <header class="header">
-        <div class="title">Shari's Notification</div>        
-      </header>
-      <div class="container">
-
-        <label>目前的推播 Token</label>
-        <div class="content">d-rcxQmVXjo:APA91bEQIc2bJQPtm-xNiSAA3Lz6YhZniwX67-_Bff_yOJl9ASgxP8V2eMZsQz9HN7rPQvvlBOYw4hzV3fPsdkTXCRtBLd8lJ1rNtyP5Z0OBeOcIB5n7TH21vNtgdpEGcY4UtnQKmq9a</div>
-        <button>發送一則推播給自己</button>
-
-      </div>
+      Hello, World
   </body>
 </html>
