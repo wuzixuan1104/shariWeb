@@ -40,7 +40,6 @@ html {
 
   > * {
     display: inline-block;
-    float: left;
     line-height: 80px;
   }
 
@@ -77,12 +76,19 @@ html {
 
 .container {
   display: inline-block;
-  width: 100%;
+  width: 800px;
 
-  padding: 30px 50px;
+  padding: 50px;
+  padding-bottom: 0;
 
-  @include range-width(0px, 500px) {
+  @include range-width(700px, 830px) {
+    width: 700px;
+  }
+
+  @include range-width(0px, 701px) {
+    width: 100%;
     padding: 15px;
+    padding-top: 30px;
   }
 
   > * {
@@ -111,6 +117,7 @@ html {
     font-size: 20px;
     margin-bottom: 20px;
     @include border-radius(5px);
+
 
     @include range-width(0px, 500px) {
       font-size: 18px;
