@@ -9,10 +9,11 @@ class Chat extends Controller {
 
   public function index() {
     $asset = Asset::create()
+                ->addCSS('/asset/css/site/Chat/index.css')
                 ->addJS('/asset/js/res/jquery-1.10.2.min.js')
-                ->addJS('/asset/js/site/Main/index.js');
+                ->addJS('/asset/js/site/Chat/index.js');
 
-    return View::create('site/Main/index.php')
+    return View::create('site/Chat/index.php')
                 ->with('asset', $asset);
   }
 }
