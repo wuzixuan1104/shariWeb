@@ -79,20 +79,57 @@ html {
     word-break: break-all;
     color: #5d4646;
     font-size: 20px;
+    margin-bottom: 20px;
     @include border-radius(5px);
   }
 
-  button {
-    font-size: 18px;
-    padding: 8px 15px;
-    margin-top: 20px;
-    background-color: #f18c8e;
-    color: white;
-    border: 1px solid #e28a8a;
-    @include border-radius(5px);
+  .hr {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid #f7e4dd;
+  }
 
-    &:hover {
-      cursor: pointer;
+  form {
+    display: inline-block;
+    width: 100%;
+
+    input {
+      display: inline-block;
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+      border: 2px solid #f0b7a4;
+      padding: 15px;
+      background-color: #fffaf5;
+      @include border-radius(5px);
+
+      + input {
+        margin-top: 15px; 
+      }
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #c3c3c3;
+      // background: gray;
+      opacity: 1; /* Firefox */
+    }
+      
+
+    button {
+      font-size: 18px;
+      padding: 8px 15px;
+      margin-top: 20px;
+      background-color: #f18c8e;
+      color: white;
+      border: 1px solid #e28a8a;
+      outline: none;
+      @include border-radius(5px);
+
+      &:hover {
+        cursor: pointer;
+        background: #b1b1b1;
+        border: 1px solid #a5a5a5;
+      }
     }
   }
 }

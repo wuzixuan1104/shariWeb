@@ -5,16 +5,39 @@ use Kreait\Firebase\ServiceAccount;
 use Kreait\Firebase\Messaging\CloudMessage;
 
 class Fire extends ApiController {
-  
-  public function realtime() {
+  public $firebase = null;
+  public function __construct() {
+    
     $serviceAccount = ServiceAccount::fromJsonFile(PATH .'firebase_credentials.json');
-    $firebase = (new Factory)
+    $this->firebase = (new Factory)
         ->withServiceAccount($serviceAccount)
         ->create();
+  }
 
-    $messaging = $firebase->getMessaging();
+  public function notify() {
+    $token = Input::post('token');
+    if (!$token)
+      return false;
 
-    $db = $firebase->getDatabase();
+    
+
+    $messaging = $this->firebase->getMessaging();
+
+    $messaging->send(CloudMessage::fromArray([
+        'token' => $assign['notify_token'],
+        'data' => [
+            'title' => 'Shari 傳送訊息',
+            'body' => $posts['text'],
+            'icon' => '/asset/img/me.png',
+            'click_action' => config('other', 'baseUrl') . 'chat',
+        ],
+    ]));
+  }
+
+  public function realtime() {
+    $messaging = $this->firebase->getMessaging();
+
+    $db = $this->firebase->getDatabase();
     $db->getReference('cs/1')
        ->set([
             'date' => date('Y-m-d H:i:s', strtotime('+3 min')),

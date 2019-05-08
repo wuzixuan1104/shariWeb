@@ -16,9 +16,16 @@
       <div class="container">
 
         <label>目前的推播 Token</label>
-        <div class="content">Can't get any token QQ</div>
-        <button>發送一則推播給自己</button>
+        <div class="content">Can't get any token ...</div>
 
+        <span class="hr"></span>
+
+        <form>
+          <input name="title" type="text" placeholder="請輸入標題">
+          <input name="body" type="text" placeholder="請輸入內容">
+        <button class="send">發送一則推播給自己</button>
+
+        </form>
       </div>
   </body>
 </html>

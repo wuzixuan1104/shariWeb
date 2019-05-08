@@ -1,4 +1,18 @@
 $(function () {
+
+    $('.send').click(function() {
+        if ($('.content').text() == 'Can\'t get any token ...') {
+            alert('Can\'t get any token ...');
+            return false;
+        }
+
+        // $.ajax({
+        //     url: '/api/firebase/notify',
+            
+        // });
+        console.log('test');
+    });
+
     function tokenSendToServer(url, params) {
         this.url = url,
         this.params = params,

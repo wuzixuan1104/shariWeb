@@ -6,4 +6,6 @@ Router::dir('api', function() {
   Router::post('liff')->controller('Liff@index');
 
   Router::post('firebase/realtime')->controller('Fire@realtime');
+
+  Router::post('firebase/notify')->controller('Fire@notify');
 });
