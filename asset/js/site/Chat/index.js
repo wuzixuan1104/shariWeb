@@ -7,11 +7,27 @@ $(function () {
             return false;
         }
 
-        // $.ajax({
-        //     url: '/api/firebase/notify',
+        if ($('input[name="title"]').val() == '' || $('input[name="body"]').val() == '') {
+            alert('請填寫完整！');
+            return false;
+        }
 
-        // });
-        console.log('test');
+        $.ajax({
+            type: 'POST',
+            url: '/api/firebase/notify',
+            data: {
+                token: $('.content').text(),
+                title: $('input[name="title"]').val(),
+                body: $('input[name="body"]').val()
+            },
+            success: function(resp) {
+                console.log(resp);
+            },
+            error: function(xhr) {
+                console.log(xhr);
+            }
+        });
+        console.log('send');
     });
 
     function tokenSendToServer(url, params) {
@@ -36,7 +52,7 @@ $(function () {
         }
     }
 
-    $.getJSON('/firebaseConfig.json').then(function(config) {
+    $.getJSON('/api/firebase/config').then(function(config) {
 
         const server = new tokenSendToServer('url', '123');
 

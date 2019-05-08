@@ -7,31 +7,40 @@ use Kreait\Firebase\Messaging\CloudMessage;
 class Fire extends ApiController {
   public $firebase = null;
   public function __construct() {
-    
-    $serviceAccount = ServiceAccount::fromJsonFile(PATH .'firebase_credentials.json');
+    parent::__construct();
+
+    $serviceAccount = ServiceAccount::fromJson(json_encode(config('firebase', 'credentials')));
     $this->firebase = (new Factory)
         ->withServiceAccount($serviceAccount)
         ->create();
   }
 
-  public function notify() {
-    $token = Input::post('token');
-    if (!$token)
-      return false;
+  public function config() {
+    return config('firebase', 'config');
+  }
 
-    
+  public function notify() {
+    $params = Input::post();
+
+    validator(function() use (&$params) {
+      Validator::need($params,  'token',   'Token')->isVarchar(190);
+      Validator::need($params,  'title',  '標題')->isVarchar(190);
+      Validator::need($params, 'body', '內容')->isText();
+    });
 
     $messaging = $this->firebase->getMessaging();
 
     $messaging->send(CloudMessage::fromArray([
-        'token' => $assign['notify_token'],
-        'data' => [
-            'title' => 'Shari 傳送訊息',
-            'body' => $posts['text'],
-            'icon' => '/asset/img/me.png',
-            'click_action' => config('other', 'baseUrl') . 'chat',
-        ],
+      'token' => $params['token'],
+      'data' => [
+          'title' => $params['title'],
+          'body' => $params['body'],
+          'icon' => '/asset/img/me.png',
+          'click_action' => config('other', 'baseUrl') . 'chat',
+      ],
     ]));
+
+    return true;
   }
 
   public function realtime() {

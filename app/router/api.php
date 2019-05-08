@@ -8,4 +8,6 @@ Router::dir('api', function() {
   Router::post('firebase/realtime')->controller('Fire@realtime');
 
   Router::post('firebase/notify')->controller('Fire@notify');
+
+  Router::get('firebase/config')->controller('Fire@config');
 });
