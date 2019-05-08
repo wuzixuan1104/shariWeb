@@ -1,5 +1,4 @@
 $(function () {
-
     function tokenSendToServer(url, params) {
         this.url = url,
         this.params = params,
@@ -83,6 +82,7 @@ $(function () {
             messaging.getToken().then(function(token) {
                 if (token) {
                     console.log(token);
+                    $('.content').text(token);
                     server.send(token);
                 } else {
                     setRequestPermission();

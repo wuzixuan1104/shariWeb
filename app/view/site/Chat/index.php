@@ -16,7 +16,7 @@
       <div class="container">
 
         <label>目前的推播 Token</label>
-        <div class="content">d-rcxQmVXjo:APA91bEQIc2bJQPtm-xNiSAA3Lz6YhZniwX67-_Bff_yOJl9ASgxP8V2eMZsQz9HN7rPQvvlBOYw4hzV3fPsdkTXCRtBLd8lJ1rNtyP5Z0OBeOcIB5n7TH21vNtgdpEGcY4UtnQKmq9a</div>
+        <div class="content">Can't get any token QQ</div>
         <button>發送一則推播給自己</button>
 
       </div>
