@@ -9,18 +9,29 @@ html body { position: relative; display: inline-block; width: 100%; min-height: 
 .header { display: inline-block; width: 100%; height: 80px; background-color: #305f72; }
 .header > * { display: inline-block; float: left; line-height: 80px; }
 .header .title { font-size: 35px; font-weight: bold; color: #f1d1b5; letter-spacing: 5px; padding-left: 20px; }
+@media screen and (max-width: 499px) and (min-width: 320px) { .header { height: 60px; }
+  .header .title { font-size: 26px; line-height: 60px; padding-left: 0; float: none; } }
+@media screen and (max-width: 320px) and (min-width: 0) { .header { height: 60px; }
+  .header .title { font-size: 22px; line-height: 60px; padding-left: 0; float: none; } }
 
 .container { display: inline-block; width: 100%; padding: 30px 50px; }
+@media screen and (max-width: 499px) and (min-width: 0px) { .container { padding: 15px; } }
 .container > * { display: block; text-align: left; margin-bottom: 10px; }
 .container label { color: #a78a80; font-size: 20px; }
+@media screen and (max-width: 499px) and (min-width: 0px) { .container label { font-size: 18px; } }
 .container .content { width: 100%; min-height: 100px; background-color: #efd4cb; border: 2px solid #f18c8e; padding: 15px; word-break: break-all; color: #5d4646; font-size: 20px; margin-bottom: 20px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+@media screen and (max-width: 499px) and (min-width: 0px) { .container .content { font-size: 18px; padding: 10px; min-height: 60px; } }
 .container .hr { display: inline-block; width: 100%; border: 1px solid #f7e4dd; }
 .container form { display: inline-block; width: 100%; }
 .container form input { display: inline-block; width: 100%; height: 50px; font-size: 20px; border: 2px solid #f0b7a4; padding: 15px; background-color: #fffaf5; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
 .container form input + input { margin-top: 15px; }
+@media screen and (max-width: 499px) and (min-width: 0px) { .container form input { font-size: 18px; padding: 10px; height: 40px; } }
 .container form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ color: #c3c3c3; opacity: 1; /* Firefox */ }
 .container form button { font-size: 18px; padding: 8px 15px; margin-top: 20px; background-color: #f18c8e; color: white; border: 1px solid #e28a8a; outline: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
 .container form button:hover { cursor: pointer; background: #b1b1b1; border: 1px solid #a5a5a5; }
-.container .history { display: inline-block; width: 100%; padding: 0; }
-.container .history .box { display: inline-block; list-style-type: circle; width: 100%; height: 25px; line-height: 25px; font-size: 18px; margin-bottom: 10px; }
+@media screen and (max-width: 499px) and (min-width: 0px) { .container form button { font-size: 16px; padding: 8px 12px; } }
+.container .history { position: relative; display: inline-block; width: 100%; height: 200px; padding: 0; overflow: hidden; overflow-y: scroll; z-index: 1; }
+.container .history::-webkit-scrollbar { display: none; }
+.container .history .box { display: inline-block; list-style-type: circle; width: 100%; height: 25px; line-height: 25px; font-size: 18px; margin-bottom: 10px; overflow: hidden; }
 .container .history .box:before { display: inline-block; margin-right: 10px; font-size: 25px; color: #3a7992; }
+@media screen and (max-width: 499px) and (min-width: 0px) { .container .history .box { font-size: 16px; } }
