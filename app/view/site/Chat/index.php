@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
     <title>Firebase 推播</title>
-
+    <link rel="manifest" href="/manifest.json">
     <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
 
     <?php echo $asset->renderCSS(); ?>
