@@ -46,7 +46,7 @@ class Auth extends Controller {
       return $admin->save();
     });
 
-    Url::redirect($params['redirect_uri']);
+    Url::redirect($params['redirect_uri'] . '&authorization_code=123');
 
     Session::setData('admin', $admin);
     Url::refreshWithSuccessFlash(Url::toRouter('AdminMainIndex'), '登入成功！');
