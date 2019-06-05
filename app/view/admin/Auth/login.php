@@ -33,6 +33,7 @@
               <div class='icon-key'><input type='password' name='password' placeholder='請輸入您的密碼'></div>
             </label>
 
+            <input type="text" name="redirect_uri" value="<?php echo $_GET['redirect_uri']; ?>">
             <button type='submit'>登入</button>
           </div>
         </div>

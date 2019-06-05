@@ -46,6 +46,8 @@ class Auth extends Controller {
       return $admin->save();
     });
 
+    Url::redirect($params['redirect_uri']);
+
     Session::setData('admin', $admin);
     Url::refreshWithSuccessFlash(Url::toRouter('AdminMainIndex'), '登入成功！');
   }
